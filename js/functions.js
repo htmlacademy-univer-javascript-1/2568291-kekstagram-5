@@ -1,4 +1,4 @@
-/*const checkStringLength = (str, length) => str.length <= length;
+const checkStringLength = (str, length) => str.length <= length;
 
 console.log(checkStringLength('Kalinka', 2));
 console.log(checkStringLength('Ekaterinburg', 15));
@@ -18,4 +18,4 @@ console.log(checkPalindrome('Kalinka'));
 console.log(checkPalindrome('Paloma'));
 console.log(checkPalindrome('Kayak'));
 console.log(checkPalindrome('Лёша на полке клопа нашёл '));
-*/
+
