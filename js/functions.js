@@ -19,3 +19,35 @@ console.log(checkPalindrome('Paloma'));
 console.log(checkPalindrome('Kayak'));
 console.log(checkPalindrome('Лёша на полке клопа нашёл '));
 
+/*
+Напишите функцию, которая принимает время начала и конца рабочего дня,
+ а также время старта и продолжительность встречи в минутах и возвращает true,
+  если встреча не выходит за рамки рабочего дня, и false, если выходит.
+
+Время указывается в виде строки в формате часы:минуты.
+ Для указания часов и минут могут использоваться как две цифры, так и одна.
+  Например, 8 часов 5 минут могут быть указаны по-разному: 08:05, 8:5, 08:5 или 8:05.
+
+Продолжительность задаётся числом.
+ Гарантируется, что и рабочий день, и встреча укладываются в одни календарные сутки.
+*/
+
+function intoMinutes (timeStr) {
+  timeStr = timeStr.split(':');
+  const minutes = Number(timeStr[0]) * 60 + Number(timeStr[1]);
+  return minutes;
+}
+
+function checkWorkMeeting (start, end, meating, duration) {
+  const startInMinutes = start.intoMinutes();
+  const endInMinutes = end.intoMinutes();
+  const meatingInMinutes = meating.intoMinutes();
+  if (startInMinutes <= meatingInMinutes &&
+    (endInMinutes - meatingInMinutes) >= duration) {
+    return true;
+  }
+
+  return false;
+}
+
+
