@@ -1,3 +1,5 @@
+import { getRandomInt } from './util.js';
+
 //Комментарии в виде текста
 const messages = [
   'Всё отлично!',
@@ -14,7 +16,7 @@ const descriptions = [
   'Хутор На Ливках',
   'Кардебалет',
   'Оркестр при свете дня',
-  'Рождество',
+  'Озорство',
   'Образ великолепия',
   'Самообман',
   'Цвета в соку',
@@ -65,6 +67,29 @@ const generatePhotos = () => {
   return photos;
 };
 
+const comments = () => {
+  let comments = [];
+  const numComments = getRandomInt(1, 10);
+  for (let j = 0; j < numComments; j++) {
+    // Уникальный ID комментария
+    let commentId = getRandomInt(1, 9999);
+    // Выбираем случайный аватар
+    let avatar = `img/avatar-${getRandomInt(1, 6)}.svg`;
+    // Выбираем случайное сообщение
+    let message = messages[getRandomInt(0, messages.length - 1)];
+    // Выбираем случайное имя
+    let name = names[getRandomInt(0, names.length - 1)];
+    // Добавляем комментарий в массив
+    comments.push({
+      id: commentId,
+      avatar: avatar,
+      message: message,
+      name: name
+    });
+  }
+};
+
+
 const createPhotos = generatePhotos();
 
-export {createPhotos};
+export {createPhotos, comments};

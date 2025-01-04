@@ -39,15 +39,13 @@ function intoMinutes (timeStr) {
 }
 
 function checkWorkMeeting (start, end, meating, duration) {
-  const startInMinutes = start.intoMinutes();
-  const endInMinutes = end.intoMinutes();
-  const meatingInMinutes = meating.intoMinutes();
-  if (startInMinutes <= meatingInMinutes &&
-    (endInMinutes - meatingInMinutes) >= duration) {
+  if (intoMinutes(start) <= intoMinutes(meating) &&
+    (intoMinutes(end) - intoMinutes(meating)) >= duration) {
     return true;
   }
 
   return false;
 }
 
-
+console.log(checkWorkMeeting('08:00', '18:00', '16:30', 120));
+console.log(checkWorkMeeting('10:0', '15:05', '14:30', 60));
